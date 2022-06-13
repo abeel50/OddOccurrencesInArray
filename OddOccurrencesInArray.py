@@ -1,11 +1,10 @@
 def solution(A):
-    # if array has single element 
-    if len(A) == 1 or len(A) == A.count(A[0]):
-        return A[0]
-    new_A = list(set(A))
-
+    set_A = set()
     # iterate through unique array
-    for i in new_A:
-            if A.count(i) % 2 != 0:
-                return i
+    for i in A:
+            if i not in set_A:
+                set_A.add(i)
+            else:
+                set_A.remove(i)
+    return list(set_A)[0]
 print(solution([9,9,9,9,1,1,3,3,7,7,7]))
